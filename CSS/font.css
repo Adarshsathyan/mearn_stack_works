@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap');
+.first{
+    border: 2px solid gray;
+    color: white;
+    font-family: 'Kaisei Decol', serif;
+    background-color: rgb(45, 214, 115);
+    width: 50%;
+}
+.second{
+    border: 2px solid rgb(150, 146, 146);
+    color: white;
+    font-family: 'Klee One', cursive;
+    background-color: rgb(199, 114, 58);
+    width: 50%;
+}
+body{
+    background-color: hotpink;
+    background-size: cover;
+    background-image: url("./image/Mern.jpg");
+}

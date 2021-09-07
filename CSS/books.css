@@ -1,0 +1,36 @@
+h1{
+    text-align: center;
+
+}
+.box{
+    box-shadow: 1px 3px 20px #d9d6db;
+    border-radius: 20px 20px 20px 20px;
+    padding: 15px;
+    margin: 10px;
+    width: 450px;
+    height:450px;
+    float: left;
+    text-align: center;
+    background-color: white;
+   
+    
+
+}
+.img{
+    box-shadow: 11px 3px 8px #d9d6db;
+    width: 200px;
+    height: 300px;
+
+}
+p{
+    font-size: large;
+    font-family: Epilogue;
+}
+body{
+    background-color: #F3F1F5;
+}
+.box:hover{
+    cursor: pointer;
+    background-color:#cac7ce ;
+    
+}

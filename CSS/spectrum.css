@@ -1,0 +1,183 @@
+/* first row */
+.first{
+    width: 10%;
+    height: 200px;
+    background-color:gray ;
+    float: left;
+    margin-left:23% ;
+    margin-right: 2%;
+    
+}
+.second{
+    width: 10%;
+    height: 200px;
+    background-color:#3e6134 ;
+    float: left;
+
+    margin-right: 2%;
+}
+.third{
+    width: 10%;
+    height: 200px;
+    background-color:#538f42 ;
+    float: left;
+
+    margin-right: 2%;
+}
+.fourth{
+    width: 10%;
+    height: 200px;
+    background-color:#69e846 ;
+    float: left;
+    margin-right: 2%;
+}
+.fifth{
+    width: 10%;
+    height: 200px;
+    background-color:#c2cfbe;
+    float: left;
+    margin-right: 19%;
+    
+
+}
+
+/* second row */
+.sixth{
+    width: 10%;
+    height: 200px;
+    background-color:#613a08;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+    margin-left: 18%;
+}
+.seventh{
+    width: 10%;
+    height: 200px;
+    background-color:#bd8611;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+}
+.eigth{
+    width: 10%;
+    height: 200px;
+    background-color:#dd662f;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+}
+.nineth{
+    width: 10%;
+    height: 200px;
+    background-color:#eec368;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+}
+.ten{
+    width: 10%;
+    height: 200px;
+    background-color:#7e7458;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+}
+.eleven{
+    width: 10%;
+    height: 200px;
+    background-color:#b3d43a;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+}
+.twelve{
+    width: 10%;
+    height: 200px;
+    background-color:#e3f777;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+}
+
+/* third row */
+.thirteen{
+    width: 10%;
+    height: 200px;
+    background-color:#2d48c2;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+    margin-left: 10%;
+}
+.fourteen{
+    width: 10%;
+    height: 200px;
+    background-color:#121d4e;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+    
+}
+.fifteen{
+    width: 10%;
+    height: 200px;
+    background-color:#99336f;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+    
+}
+.sixteen{
+    width: 10%;
+    height: 200px;
+    background-color:#139e3d;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+    
+}
+.seventeen{
+    width: 10%;
+    height: 200px;
+    background-color:#e63bbb;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+    
+}
+.eighteen{
+    width: 10%;
+    height: 200px;
+    background-color:#0dac22;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+    
+}
+.ninteen{
+    width: 10%;
+    height: 200px;
+    background-color:#000000;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+    
+}
+.twenty{
+    width: 10%;
+    height: 200px;
+    background-color:#1438d6;
+    float: left;
+    margin-top:2%;
+    margin-right: 2%;
+   
+}
+
+body{
+    background-color: black;
+}
+h1{
+    color: white;
+    text-align: center;
+}

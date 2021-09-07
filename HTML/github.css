@@ -1,0 +1,43 @@
+.form_box{
+    width: 22%;
+    height: 201px;
+    background-color:rgb(255, 255, 255) ;
+    padding: 15px;
+    
+    border: 0.2px solid gray;
+    border-radius: 10px 10px 10px 10px;
+}
+.btn{
+    width: 88%;
+    height: 38px;
+    background-color: rgb(103, 236, 103);
+    color: white;
+    border: none;
+}
+.box2{
+    width: 22%;
+    height: 28px;
+    font-size: 18px;
+    background-color:rgb(255, 255, 255) ;
+    padding: 15px;
+    margin-top: 10px;
+    border: 0.2px solid gray;
+    border-radius: 10px 10px 10px 10px;
+}
+.footer{
+    margin-top: 20px;
+    
+}
+
+input{
+    width: 78%;
+    height: 27px;
+    border: 0.6px solid gray;
+    border-radius: 5px 5px 5px 5px;
+}
+.forget{
+    margin-left: 81px;
+}
+.username{
+    text-align: left;
+}

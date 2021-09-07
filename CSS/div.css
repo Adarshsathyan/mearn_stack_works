@@ -1,0 +1,16 @@
+div{
+    border: 1px solid gray;
+    height: 200PX;
+    width: 40%;
+    color: white;
+}
+.box1{
+    background-color:#325aa8 ;
+    margin-top: 30%;
+    margin-left: 30%;
+}
+.box2{
+    background-color: #a1308c; 
+    margin-left: 30%;
+    margin-top: 2%;
+}

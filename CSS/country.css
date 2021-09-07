@@ -1,0 +1,41 @@
+h1{
+    text-align: center;
+}
+.parent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.box{
+    border: 1px solid;
+    width: 20%;
+    height: 500px;
+    float: left;
+    padding: 12px;
+}
+.box_content{
+    text-align: center;
+}
+.flag{
+    width: 100%;
+    height: 300px;
+}
+.flag_content{
+    display: flex;
+    justify-content: space-around;
+    
+}
+header{
+    display: flex;
+    width: 100%;
+    background-color: blue;
+    justify-content: space-evenly;
+    height: 50px;
+    align-items: center;
+}
+header a{
+    color: white;
+   text-decoration: none;
+   padding: 50px;
+}
