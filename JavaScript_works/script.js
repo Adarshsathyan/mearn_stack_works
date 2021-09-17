@@ -11,7 +11,11 @@ console.log(company);
 console.log(location);
 
 var age = 20;
-var name = "Adarsh Sathyan";
-console.log(age,name);
-console.log("Hai i am", name ,age,"years old")
+var p_name = "Adarsh Sathyan";
+console.log(age,p_name);
+//hai iam name age years old
+console.log("Hai i am", p_name ,age,"years old")
+
+//templating
+console.log(`hai i am ${p_name} ${age} years old`);
 
