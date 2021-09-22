@@ -1,13 +1,12 @@
-let num =5;
-let star = "";
+let num =6;
 
-for(let i=1;i<num;i++){
-    for( let j=1;j<=num-i;j++){
+for(let i=0;i<=num;i++){
+    let star = "";
+    for( let j=0;j<=num-i-1;j++){
         star+=" "
     }
-    for( let k=0;k<2*i-1;k++){
-        star+="*"
+    for( let k=0;k<i+1;k++){
+        star+="* "
     }
-    star+="\n"
+    console.log(star);
 }
-console.log(star);

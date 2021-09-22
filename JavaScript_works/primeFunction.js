@@ -18,5 +18,5 @@ function findPrime(low,upp){
     
 }
 
-console.log(findPrime(5,17));
+console.log(findPrime(8,27));
 //findPrime(5,17)
