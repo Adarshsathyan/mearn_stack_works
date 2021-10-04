@@ -9,7 +9,7 @@ var accounts={
 //login function
 let login=(acno,password)=>{
     if(acno in accounts){
-        let pass = accounts[acno].password
+        let pass = accounts[acno].password;
         if(password==pass){
             console.log("Login successful");
         }else{
@@ -20,4 +20,4 @@ let login=(acno,password)=>{
     }
 }
 
-login(1002,"userone")
+login(1002,"userone");
