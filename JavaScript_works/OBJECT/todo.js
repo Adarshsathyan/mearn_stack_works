@@ -16,7 +16,7 @@ var todos = [
     "id": 3,
     "title": "fugiat veniam minus",
     "completed": false
-    },
+     },
     {
     "userId": 1,
     "id": 4,
@@ -1199,6 +1199,45 @@ var todos = [
     "title": "ipsam aperiam voluptates qui",
     "completed": false
     }
-    ]
+]
 
-    //={1:{total:1,finished:2,pending:1}}
+//={1:{total:1,finished:2,pending:1}}
+
+
+//intialize empty object
+let data_report = {}; 
+
+//looping through each data 
+for(let todo of todos){
+
+        //check if the intialized object conatins the key which is todo.userId(1)
+    if(todo.userId in data_report){
+        //increment total
+        data_report[todo.userId].total+=1;
+        //check the corresponding data's completed key == true
+        if(todo.completed==true){
+            //increment finshed
+            data_report[todo.userId].finished+=1;
+        }else{
+            //increment pending
+            data_report[todo.userId].pending+=1;
+        }
+        
+        //if intailized object doest contain the userId 
+    }else{
+
+        //intialize the empty object with total as 1
+        data_report[todo.userId]={total:1,finished:0,pending:0};
+        //if the completed key in todo is true
+        if(todo.completed==true){
+            //intialize the empty object with total as 1, finsihed as one
+            data_report[todo.userId]={total:1,finished:1,pending:0};
+           
+        }else{
+            //intialize the empty object with total as 1,pending as 1
+            data_report[todo.userId]={total:1,finished:0,pending:1};
+      
+        }
+    }
+}
+console.log(data_report);
