@@ -49,9 +49,14 @@ class Bank{
         return this.accounts;
     }
 
+    //validate account number
+    validateAccountNumber(accno){
+        return accno in this.accounts?true:false
+    }
+
     //authentication
     authenticate(accno,pass){
-        if(accno in this.accounts){
+        if(this.validateAccountNumber){
             let password = this.accounts[accno].password
             
             if(password==pass){
@@ -98,6 +103,22 @@ class Bank{
         }
         
     }
+    //payment histories
+    paymentHistory(){
+        let user = this.session["user"]
+        return this.accounts[user].transactions
+    }
+    
+    
+    creditTransactions(){
+        let user = this.session["user"]
+        let credit_details = []
+        for(let transaction in this.accounts){
+            let transactions = this.accounts[transaction].transactions
+           transactions.map(history =>history.to==user?credit_details.push({from:transaction,amount:history.amount}):'')
+        }
+        return credit_details;
+    }
 }
 
 let obj = new Bank;
@@ -105,5 +126,7 @@ let obj = new Bank;
 let user = obj.authenticate(1002,"usertwo");
  console.log(user==1?"login success":user==0?"Incorrect password":"Invalid account number");
 
-obj.balanceEnquiry()
-obj.fundTransfer(1001,5000)
+// obj.balanceEnquiry()
+// obj.fundTransfer(1001,5000)
+// console.log(obj.paymentHistory())
+console.log(obj.creditTransactions())
