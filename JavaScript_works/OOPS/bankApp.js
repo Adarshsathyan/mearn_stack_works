@@ -109,15 +109,35 @@ class Bank{
         return this.accounts[user].transactions
     }
     
+    //allTransaction history
+    getTransactions(){
+        let transaction_history = [];
+        for(let account in this.accounts){
+            transaction_history.push(this.accounts[account].transactions)   
+        }
+        return transaction_history;
+    }
+    // creditTransactions(){
+    //     let user = this.session["user"]
+    //     let credit_details = []
+    //     for(let transaction in this.accounts){
+    //         let transactions = this.accounts[transaction].transactions
+    //        transactions.map(history =>history.to==user?credit_details.push({from:transaction,amount:history.amount}):'')
+    //     }
+    //     return credit_details;
+    // }
     
     creditTransactions(){
-        let user = this.session["user"]
-        let credit_details = []
-        for(let transaction in this.accounts){
-            let transactions = this.accounts[transaction].transactions
-           transactions.map(history =>history.to==user?credit_details.push({from:transaction,amount:history.amount}):'')
+        let user = this.session["user"];
+        let transactions = this.getTransactions();
+        for (let transaction of transactions){
+            for(let trans of transaction){
+                if(trans.to==user){
+                    console.log(trans);
+                }
+            }
         }
-        return credit_details;
+        
     }
 }
 
@@ -129,4 +149,6 @@ let user = obj.authenticate(1002,"usertwo");
 // obj.balanceEnquiry()
 // obj.fundTransfer(1001,5000)
 // console.log(obj.paymentHistory())
-console.log(obj.creditTransactions())
+console.log(obj.getTransactions());
+obj.creditTransactions()
+// console.log(obj.creditTransactions())
