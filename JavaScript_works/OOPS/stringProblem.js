@@ -9,6 +9,7 @@ for(let word of words){
         for(let char of word){
             st.add(char)
         }
+        
         st.add(" ")
         for(let word of st){
             str+=word
