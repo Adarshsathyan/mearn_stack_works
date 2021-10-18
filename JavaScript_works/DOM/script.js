@@ -53,3 +53,5 @@ var items = document.querySelectorAll(".section")
 for(let item of items ){
     item.style.color = "brown"
 }
+
+//invalid age should be red and valid should be green
