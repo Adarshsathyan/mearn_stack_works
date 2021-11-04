@@ -12,7 +12,7 @@ class Bank{
             balance:bal
         }
         localStorage.setItem(person.acno,JSON.stringify(person))
-        alert("Account created")
+        swal("Account created","Successfully created","success")
         location.href="../login/index.html"
 
     }

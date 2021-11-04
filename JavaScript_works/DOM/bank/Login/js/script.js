@@ -14,11 +14,11 @@ class Bank {
                 location.href = "../Landing_page/index.html"
 
             } else {
-                alert("Invalid password")
+                swal("Invalid password","Try again","error")
             }
         }
         else {
-            alert("Invalid account number")
+            swal("Invalid account number","Check account number","error")
         }
     }
 
