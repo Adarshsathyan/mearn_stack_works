@@ -1,14 +1,11 @@
 import './App.css';
-import Content from './Content';
-import Random from './Random';
+import Counter from './Counter';
 
 function App() {
   
   return (
     <div className="App">
-      <h1>Hello world</h1>
-      <Content/>
-      <Random/>
+    <Counter value={"helloww"}/>
     </div>
   );
 }
