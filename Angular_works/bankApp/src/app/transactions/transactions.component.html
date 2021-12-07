@@ -1,0 +1,26 @@
+<div class="container p-5">
+    <h2 >Transactions</h2>
+    <a class="text-decoration-none me-auto" routerLink="/home">Back</a>
+    <div class="container mt-5 table-responsive p-2">
+        <table class="table table-borderless table-striped  " >
+            <tbody >
+              <tr>
+                <th class="text-muted">Date</th>
+                <th class="text-muted">Time</th>
+                <th class="text-muted">Type</th>
+                <th class="text-muted">Amount</th>
+                <!-- <th class="text-muted">Status</th> -->
+              </tr>
+              <tr *ngFor="let trans of transactions">
+                <td>{{trans.date}}</td>
+                <td>{{trans.time}}</td>
+                <td>{{trans.type}}</td>
+                <td><span *ngIf="(trans.type)==='Debit'" class="fw-bold  text-danger">-{{trans.amount}}/-</span> <span *ngIf="(trans.type)==='Credit'" class=" fw-bold text-success">+{{trans.amount}}/-</span> </td>
+                <!-- <td *ngIf="(trans.type)==='Debit'"><i class="fas fa-minus text-danger"></i></td>
+                <td *ngIf="(trans.type)==='Credit'"><i class="fas fa-plus text-success"></i></td> -->
+              </tr>
+            </tbody>
+          </table>
+    </div>
+   
+</div>

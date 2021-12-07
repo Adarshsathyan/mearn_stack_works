@@ -12,7 +12,7 @@
               <a class="nav-link active " aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" id="balance1" href="#"  onclick="bank.checkBalance()">Balance</a>
+              <a class="nav-link active" aria-current="page" id="balance1" routerLink="/transactions"  >Transactions</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#" id="fund_transfer"  data-bs-toggle="modal" data-bs-target="#exampleModal">Deposit</a>
@@ -22,7 +22,15 @@
               </li>
           </ul>
           <ul class="navbar-nav ms-auto">
-            <button class="btn btn-outline-dark " id="logout" onclick="bank.logout()">Logout</button>
+            <li class="nav-item dropdown">
+              <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Welcome <span class="fw-bold text-dark">{{user}}</span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item btn btn-dark" href="#">Logout</a></li>  
+              </ul>
+            </li>
+            
           </ul>
         </div>
       </div>
@@ -44,15 +52,27 @@
           <div class="d-flex justify-content-center">
             <img src="assets/landing-images/transfer.gif" alt="" class="img-fluid col-md-12 " style="width: 50%; height: 200px;">
           </div>
-          <form (ngSubmit)="deposit()"   >
+          <form (ngSubmit)="deposit()" [formGroup]="depositForm"   >
             <div class="mb-3">
-              <input type="number" placeholder="Account number" id="acno1" name="acno" [(ngModel)]="acno1" class="form-control col-md-12">
+              <input type="number" placeholder="Account number" id="acno1" name="acno" formControlName="acno" class="form-control col-md-12">
+              <p *ngIf="(this.depositForm.get('acno')?.touched || this.depositForm.get('acno')?.dirty) && this.depositForm.get('acno')?.errors"
+                              class="text-danger mt-3  text-center">
+                                 <b>! </b>Invalid account number
+                            </p>
             </div>
             <div class="mb-3">
-              <input type="password" placeholder="password" id="pass1" name="pass" [(ngModel)]="pass1" class="form-control col-md-12">
+              <input type="password" placeholder="password" id="pass1" name="pass" formControlName="password" class="form-control col-md-12">
+              <p *ngIf="(this.depositForm.get('password')?.touched || this.depositForm.get('password')?.dirty) && this.depositForm.get('password')?.errors"
+                              class="text-danger mt-3  text-center">
+                                 <b>! </b>Invalid password
+                            </p>
             </div>
             <div class="mb-3">
-              <input type="number" placeholder="Amount" id="amnt1" name="amnt" [(ngModel)]="amnt1" class="form-control col-md-12">
+              <input type="number" placeholder="Amount" id="amnt1" name="amnt" formControlName="amount" class="form-control col-md-12">
+              <p *ngIf="(this.depositForm.get('amount')?.touched || this.depositForm.get('amount')?.dirty) && this.depositForm.get('amount')?.errors"
+                              class="text-danger mt-3  text-center">
+                                 <b>! </b>Invalid format
+                            </p>
             </div>
             <div class="mb-5">
               <button type="submit" class="btn btn-outline-primary col-md-12 col-12" data-bs-dismiss="modal" >Deposit</button>
@@ -83,15 +103,27 @@
             <div class="d-flex justify-content-center">
               <img src="assets/landing-images/transfer.gif" alt="" class="img-fluid col-md-12 " style="width: 50%; height: 200px;">
             </div>
-            <form (ngSubmit)="withdraw()">
+            <form (ngSubmit)="withdraw()" [formGroup]="withdrawForm">
               <div class="mb-3">
-                <input type="number" placeholder="Account number" id="acno2" name="acno2" [(ngModel)]="acno2" class="form-control col-md-12">
+                <input type="number" placeholder="Account number" id="acno2" name="acno2" formControlName="acno" class="form-control col-md-12">
+                <p *ngIf="(this.withdrawForm.get('acno')?.touched || this.withdrawForm.get('acno')?.dirty) && this.withdrawForm.get('acno')?.errors"
+                              class="text-danger mt-3  text-center">
+                                 <b>! </b>Invalid account number
+                            </p>
               </div>
               <div class="mb-3">
-                <input type="password" placeholder="Password" id="pass2" name="pass2" [(ngModel)]="pass2" class="form-control col-md-12">
+                <input type="password" placeholder="Password" id="pass2" name="pass2" formControlName="password" class="form-control col-md-12">
+                <p *ngIf="(this.withdrawForm.get('password')?.touched || this.withdrawForm.get('password')?.dirty) && this.withdrawForm.get('password')?.errors"
+                              class="text-danger mt-3  text-center">
+                                 <b>! </b>Invalid password
+                            </p>
               </div>
               <div class="mb-3">
-                <input type="number" placeholder="Amount" id="amnt2" name="amnt2" name="amnt2" [(ngModel)]="amnt2" class="form-control col-md-12">
+                <input type="number" placeholder="Amount" id="amnt2" name="amnt2" name="amnt2" formControlName="amount" class="form-control col-md-12">
+                <p *ngIf="(this.withdrawForm.get('amount')?.touched || this.withdrawForm.get('amount')?.dirty) && this.withdrawForm.get('amount')?.errors"
+                              class="text-danger mt-3  text-center">
+                                 <b>! </b>Invalid format
+                            </p>
               </div>
               <div class="mb-5">
                 <button  class="btn btn-outline-primary col-md-12 col-12" type="submit" data-bs-dismiss="modal"> Withdraw</button>

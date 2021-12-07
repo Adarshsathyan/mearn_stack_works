@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -8,44 +9,62 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  acno1=""
-  pass1=""
-  amnt1=""
+  depositForm = this.fb.group({
+    acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    password:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
+    amount:['',[Validators.required,Validators.pattern('[0-9]*')]]
+  })
+  
+  withdrawForm = this.fb.group({
+    acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    password:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
+    amount:['',[Validators.required,Validators.pattern('[0-9]*')]]
+  })
 
-  acno2="";
-  pass2="";
-  amnt2="";
+  user=this.ds.currentUser
  
-  constructor(private ds:DataService) { }
+  constructor(private ds:DataService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
 
   deposit(){
     
-    let acno=this.acno1;
-    let pass=this.pass1;
-    let amnt=this.amnt1;
-    let result = this.ds.deposit(acno,pass,amnt);
+    let acno=this.depositForm.value.acno;
+    let pass=this.depositForm.value.password;
+    let amnt=this.depositForm.value.amount;
+    console.log(this.depositForm);
+    
+    if(this.depositForm.valid){
+      let result = this.ds.deposit(acno,pass,amnt);
 
      if(result){
       alert(`${amnt} is added successfully. Balance id ${result}`)
      }else{
        alert("Something went wrong")
      }
+    }else{
+      alert("Invalid form")
+    }
+    
   }
 
   withdraw(){
-    let acno = this.acno2;
-    let pass = this.pass2;
-    let amnt = this.amnt2;
-    let result = this.ds.withdraw(acno, pass, amnt);
+    let acno = this.withdrawForm.value.acno;
+    let pass = this.withdrawForm.value.password;
+    let amnt = this.withdrawForm.value.amount;
+    if(this.withdrawForm.valid){
+      let result = this.ds.withdraw(acno, pass, amnt);
     
     if(result){
       alert(`${amnt} have debited. Balance id ${result}`)
     }else{
       alert("Something went wrong")
     }
+    }else{
+      alert("Invalid form")
+    }
+    
   }
 
 }
