@@ -21,11 +21,17 @@ export class HomeComponent implements OnInit {
     amount:['',[Validators.required,Validators.pattern('[0-9]*')]]
   })
 
-  user=this.ds.currentUser
- 
-  constructor(private ds:DataService,private fb:FormBuilder) { }
+  user:any
+  
+  constructor(private ds: DataService, private fb: FormBuilder,private router:Router) { 
+    this.user = localStorage.getItem("userData")||''
+  }
 
   ngOnInit(): void {
+    if (!localStorage.getItem("token")) {
+      alert("Please Login");
+      this.router.navigateByUrl("")
+    }
   }
 
   deposit(){
@@ -33,16 +39,17 @@ export class HomeComponent implements OnInit {
     let acno=this.depositForm.value.acno;
     let pass=this.depositForm.value.password;
     let amnt=this.depositForm.value.amount;
-    console.log(this.depositForm);
     
     if(this.depositForm.valid){
-      let result = this.ds.deposit(acno,pass,amnt);
-
-     if(result){
-      alert(`${amnt} is added successfully. Balance id ${result}`)
-     }else{
-       alert("Something went wrong")
-     }
+      this.ds.deposit(acno, pass, amnt).subscribe((result:any) => {
+        if(result){
+          alert(result.message)
+         }
+      },
+        (result: any) => {
+        alert(result.error.message)
+      })
+     
     }else{
       alert("Invalid form")
     }
@@ -54,17 +61,26 @@ export class HomeComponent implements OnInit {
     let pass = this.withdrawForm.value.password;
     let amnt = this.withdrawForm.value.amount;
     if(this.withdrawForm.valid){
-      let result = this.ds.withdraw(acno, pass, amnt);
-    
-    if(result){
-      alert(`${amnt} have debited. Balance id ${result}`)
-    }else{
-      alert("Something went wrong")
-    }
+      this.ds.withdraw(acno, pass, amnt).subscribe((result:any) => {
+        if(result){
+          alert(result.message)
+         }
+      },
+        (result: any) => {
+        alert(result.error.message)
+      })
+     
     }else{
       alert("Invalid form")
     }
     
+  }
+
+  logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("acno");
+    localStorage.removeItem("userData");
+    this.router.navigateByUrl("")
   }
 
 }

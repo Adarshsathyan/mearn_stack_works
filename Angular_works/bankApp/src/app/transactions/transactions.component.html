@@ -1,7 +1,11 @@
 <div class="container p-5">
-    <h2 >Transactions</h2>
+    <h2 appHighlights >Transactions <span class="h6">{{date | date  |uppercase}}</span> </h2>
     <a class="text-decoration-none me-auto" routerLink="/home">Back</a>
-    <div class="container mt-5 table-responsive p-2">
+    <div class="text-center p-2 ">
+      <button class="btn btn-danger btn-sm " (click)="deleteFromParent()">Delete</button>
+     <app-deleteaccount [item]="d_acno" (onDelete)="onDelete($event)"  (onCancel)="onCancel()" ></app-deleteaccount>
+    </div>
+    <div class="container mt-5 table-responsive p-2" [ngClass]="d_acno?'c1':'' ">
         <table class="table table-borderless table-striped  " >
             <tbody >
               <tr>

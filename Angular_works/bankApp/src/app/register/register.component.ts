@@ -30,14 +30,21 @@ export class RegisterComponent implements OnInit {
       let pswd = this.registerForm.value.pswd;
        
       if(this.registerForm.valid){
-        let result = this.ds.register(accno,uname,pswd);
-      if(result){
-        alert("Account created successfully. Please log in !!!!");
-        this.router.navigateByUrl("");
-      }
-      else{
-        alert("Account already exists. Try again")
-      }
+        this.ds.register(accno, uname, pswd)
+          .subscribe((result:any) => {
+            if (result) {
+              alert(result.message);
+              this.router.navigateByUrl("");
+            }
+          },
+            (result: any) => {
+              alert(result.error.message);
+            }
+            
+        )
+        
+        
+      
       }else{
         alert("Form invalid")
       }

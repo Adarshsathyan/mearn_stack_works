@@ -8,6 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import {HttpClientModule} from '@angular/common/http';
+import { DeleteaccountComponent } from './deleteaccount/deleteaccount.component';
+import { HighlightsDirective } from './directives/highlights.directive'
 
 @NgModule({
   declarations: [
@@ -15,13 +18,16 @@ import { TransactionsComponent } from './transactions/transactions.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    DeleteaccountComponent,
+    HighlightsDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
